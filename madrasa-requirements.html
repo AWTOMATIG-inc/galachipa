@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Galachipa Mohila College — Project Requirements</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Lora:ital,wght@0,400;0,600;1,400&family=Noto+Serif+Bengali:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f4ef;
+    --ink: #1a1814;
+    --muted: #6b6560;
+    --rule: #d8d2c8;
+    --accent: #2d6a4f;
+    --accent-light: #e8f4ee;
+    --accent2: #b5451b;
+    --accent2-light: #fdf0ec;
+    --tag-web: #1a5276;
+    --tag-web-bg: #eaf2fb;
+    --tag-cms: #6c3483;
+    --tag-cms-bg: #f5eef8;
+    --tag-both: #2d6a4f;
+    --tag-both-bg: #e8f4ee;
+    --col: 720px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Lora', Georgia, serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.75;
+    font-size: 15px;
+  }
+
+  /* ── TOP BAR ── */
+  .topbar {
+    background: var(--ink);
+    color: #f7f4ef;
+    padding: 10px 32px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: .08em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .topbar .badge {
+    background: var(--accent);
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 2px;
+    font-size: 10px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+  }
+  .topbar .pills { display: flex; gap: 8px; flex-wrap: wrap; }
+  .topbar .pill {
+    border: 1px solid rgba(255,255,255,.25);
+    padding: 2px 8px;
+    border-radius: 2px;
+    font-size: 10px;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    border-bottom: 2px solid var(--ink);
+    padding: 56px 32px 40px;
+    max-width: var(--col);
+    margin: 0 auto;
+  }
+  .hero-meta {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .hero h1 {
+    font-family: 'Lora', serif;
+    font-size: clamp(26px, 5vw, 40px);
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+  .hero h1 span { color: var(--accent); }
+  .hero .subtitle {
+    font-family: 'Noto Serif Bengali', serif;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 24px;
+  }
+  .hero-stats {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin-top: 28px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+  }
+  .stat { }
+  .stat .num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--accent);
+    line-height: 1;
+  }
+  .stat .label {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 3px;
+  }
+  .stat .label-bn {
+    font-family: 'Noto Serif Bengali', serif;
+    font-size: 11px;
+    color: var(--muted);
+    display: block;
+  }
+
+  /* ── LAYOUT ── */
+  .body-wrap {
+    max-width: var(--col);
+    margin: 0 auto;
+    padding: 0 32px 80px;
+  }
+
+  /* ── SUMMARY BOX ── */
+  .summary {
+    border-left: 3px solid var(--accent);
+    background: var(--accent-light);
+    padding: 20px 24px;
+    margin: 36px 0 0;
+    font-size: 14px;
+  }
+  .summary strong { font-weight: 600; }
+  .summary .bn {
+    font-family: 'Noto Serif Bengali', serif;
+    font-size: 13px;
+    color: var(--muted);
+    display: block;
+    margin-top: 6px;
+    border-top: 1px dashed rgba(0,0,0,.1);
+    padding-top: 6px;
+  }
+
+  /* ── SECTION HEADERS ── */
+  .section {
+    margin-top: 52px;
+  }
+  .section-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 12px;
+    margin-bottom: 28px;
+  }
+  .section-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    padding-top: 6px;
+    flex-shrink: 0;
+  }
+  .section-title h2 {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+  .section-title .bn {
+    font-family: 'Noto Serif Bengali', serif;
+    font-size: 13px;
+    color: var(--muted);
+    display: block;
+    margin-top: 3px;
+  }
+
+  /* ── MODULE CARDS ── */
+  .modules { display: flex; flex-direction: column; gap: 16px; }
+
+  .module {
+    border: 1px solid var(--rule);
+    background: #fff;
+  }
+  .module-head {
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    user-select: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color .15s;
+  }
+  .module.open .module-head { border-bottom: 1px solid var(--rule); }
+
+  .module-icon {
+    font-size: 18px;
+    flex-shrink: 0;
+    width: 32px;
+    text-align: center;
+  }
+  .module-title { flex: 1; }
+  .module-title strong {
+    font-weight: 600;
+    font-size: 14px;
+    display: block;
+  }
+  .module-title .bn {
+    font-family: 'Noto Serif Bengali', serif;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .module-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 2px;
+    letter-spacing: .06em;
+    flex-shrink: 0;
+  }
+  .tag-web    { background: var(--tag-web-bg);  color: var(--tag-web); }
+  .tag-cms    { background: var(--tag-cms-bg);  color: var(--tag-cms); }
+  .tag-both   { background: var(--tag-both-bg); color: var(--tag-both); }
+
+  .module-toggle {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 16px;
+    color: var(--muted);
+    flex-shrink: 0;
+    transition: transform .2s;
+  }
+  .module.open .module-toggle { transform: rotate(45deg); }
+
+  .module-body {
+    display: none;
+    padding: 18px 18px 20px 62px;
+  }
+  .module.open .module-body { display: block; }
+
+  .feat-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 8px 20px;
+    margin-top: 4px;
+  }
+  .feat-item {
+    font-size: 13px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 8px 10px;
+    border-left: 2px solid var(--rule);
+  }
+  .feat-item .en { font-weight: 500; }
+  .feat-item .bn {
+    font-family: 'Noto Serif Bengali', serif;
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  .module-note {
+    margin-top: 14px;
+    padding: 10px 14px;
+    background: var(--accent2-light);
+    border-left: 3px solid var(--accent2);
+    font-size: 12.5px;
+    color: var(--accent2);
+  }
+  .module-note .bn {
+    font-family: 'Noto Serif Bengali', serif;
+    font-size: 11px;
+    display: block;
+    margin-top: 4px;
+    color: #a03518;
+  }
+
+  /* ── ROLE CALLOUTS ── */
+  .roles {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 14px;
+    margin-top: 28px;
+  }
+  .role-card {
+    border: 1px solid var(--rule);
+    padding: 16px;
+    background: #fff;
+  }
+  .role-card .role-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .role-card ul {
+    list-style: none;
+    font-size: 13px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .role-card ul li::before {
+    content: '→ ';
+    color: var(--accent);
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 2px solid var(--ink);
+    padding: 20px 32px;
+    max-width: var(--col);
+    margin: 0 auto;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  /* ── LEGEND ── */
+  .legend {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    margin-bottom: -8px;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+  }
+  .legend-dot {
+    width: 10px; height: 10px; border-radius: 1px; flex-shrink: 0;
+  }
+
+  @media (max-width: 600px) {
+    .hero, .body-wrap, footer { padding-left: 18px; padding-right: 18px; }
+    .feat-list { grid-template-columns: 1fr; }
+    .roles { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+    <span class="badge">PRD</span>
+    <span style="opacity:.5">Galachipa Mohila College</span>
+  </div>
+  <div class="pills">
+    <span class="pill">Version 1.0</span>
+    <span class="pill">Scope: Website + Management System</span>
+    <span class="pill">Audience: Design &amp; Dev</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-meta">
+    <span>Project Requirements Document</span>
+    <span>1 Unified System</span>
+    <span>2 Layers</span>
+  </div>
+  <h1>Galachipa Mohila College<br><span>Website &amp; Management System</span></h1>
+  <p class="subtitle">গলাচিপা মহিলা কলেজ — ওয়েবসাইট ও ম্যানেজমেন্ট সিস্টেম</p>
+
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="num">250+</div>
+      <div class="label">Students
+        <span class="label-bn">শিক্ষার্থী</span>
+      </div>
+    </div>
+    <div class="stat">
+      <div class="num">~15</div>
+      <div class="label">Teachers
+        <span class="label-bn">শিক্ষক</span>
+      </div>
+    </div>
+    <div class="stat">
+      <div class="num">5</div>
+      <div class="label">Grade Levels
+        <span class="label-bn">শ্রেণি (১ম–৫ম)</span>
+      </div>
+    </div>
+    <div class="stat">
+      <div class="num">4</div>
+      <div class="label">User Roles
+        <span class="label-bn">ব্যবহারকারী ভূমিকা</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="body-wrap">
+
+  <!-- SUMMARY -->
+  <div class="summary">
+    <strong>Project Summary:</strong> This is a single unified project consisting of two layers — a <strong>public-facing website</strong> for institutional presence, and a <strong>backend management system (EMS)</strong> for day-to-day administration. The goal is to reduce manual paperwork, enable parent communication via SMS, and centralize all institutional data.
+    <span class="bn">এটি একটি সমন্বিত প্রকল্প। প্রতিষ্ঠানের পরিচিতির জন্য পাবলিক ওয়েবসাইট এবং দৈনন্দিন প্রশাসনিক কার্যক্রমের জন্য একটি ব্যাকএন্ড ম্যানেজমেন্ট সিস্টেম — দুটি একসাথে।</span>
+  </div>
+
+  <!-- LEGEND -->
+  <div class="legend">
+    <div class="legend-item"><div class="legend-dot" style="background:var(--tag-web-bg);border:1.5px solid var(--tag-web)"></div> Website (Public)</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--tag-cms-bg);border:1.5px solid var(--tag-cms)"></div> Management System (Admin)</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--tag-both-bg);border:1.5px solid var(--tag-both)"></div> Both</div>
+  </div>
+
+  <!-- SECTION 1: PUBLIC WEBSITE -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">01</div>
+      <div class="section-title">
+        <h2>Public Website — Institutional Presence</h2>
+        <span class="bn">পাবলিক ওয়েবসাইট — প্রতিষ্ঠানের পরিচিতি</span>
+      </div>
+    </div>
+    <div class="modules">
+
+      <!-- Home Page -->
+      <div class="module" id="m-home">
+        <div class="module-head" onclick="toggle('m-home')">
+          <div class="module-icon">🏠</div>
+          <div class="module-title">
+            <strong>Home Page</strong>
+            <span class="bn">হোম পেজ</span>
+          </div>
+          <span class="module-tag tag-web">WEBSITE</span>
+          <span class="module-toggle">+</span>
+        </div>
+        <div class="module-body">
+          <div class="feat-list">
+            <div class="feat-item"><span class="en">Institution Introduction</span><span class="bn">প্রতিষ্ঠানের পরিচিতি</span></div>
+            <div class="feat-item"><span class="en">Founder's Message</span><span class="bn">প্রতিষ্ঠাতার বার্তা</span></div>
+            <div class="feat-item"><span class="en">Principal's Message</span><span class="bn">অধ্যক্ষের বার্তা</span></div>
+            <div class="feat-item"><span class="en">Latest Notices (Live Feed)</span><span class="bn">সর্বশেষ নোটিশ</span></div>
+            <div class="feat-item"><span class="en">Photo &amp; Video Gallery</span><span class="bn">ছবি ও ভিডিও গ্যালারি</span></div>
+            <div class="feat-item"><span class="en">Admission Announcement Banner</span><span class="bn">ভর্তি বিজ্ঞপ্তি</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- About -->
+      <div class="module" id="m-about">
+        <div class="module-head" onclick="toggle('m-about')">
+          <div class="module-icon">📜</div>
+          <div class="module-title">
+            <strong>About Us</strong>
+            <span class="bn">আমাদের সম্পর্কে</span>
+          </div>
+          <span class="module-tag tag-web">WEBSITE</span>
+          <span class="module-toggle">+</span>
+        </div>
+        <div class="module-body">
+          <div class="feat-list">
+            <div class="feat-item"><span class="en">History of the Institution</span><span class="bn">ইতিহাস</span></div>
+            <div class="feat-item"><span class="en">Goals &amp; Objectives</span><span class="bn">লক্ষ্য ও উদ্দেশ্য</span></div>
+            <div class="feat-item"><span class="en">Mission &amp; Vision</span><span class="bn">মিশন ও ভিশন</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Academic -->
+      <div class="module" id="m-academic">
+        <div class="module-head" onclick="toggle('m-academic')">
+          <div class="module-icon">📚</div>
+          <div class="module-title">
+            <strong>Academic Section</strong>
+            <span class="bn">একাডেমিক বিভাগ</span>
+          </div>
+          <span class="module-tag tag-web">WEBSITE</span>
+          <span class="module-toggle">+</span>
+        </div>
+        <div class="module-body">
+          <div class="feat-list">
+            <div class="feat-item"><span class="en">Grade List (1st–5th)</span><span class="bn">শ্রেণিসমূহ (১ম–৫ম)</span></div>
+            <div class="feat-item"><span class="en">Curriculum Overview</span><span class="bn">পাঠ্যক্রম</span></div>
+            <div class="feat-item"><span class="en">Class Routine / Timetable</span><span class="bn">ক্লাস রুটিন</span></div>
+            <div class="feat-item"><span class="en">Exam Schedule</span><span class="bn">পরীক্ষার সময়সূচি</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Teacher Profiles -->
+      <div class="module" id="m-teachers">
+        <div class="module-head" onclick="toggle('m-teachers')">
+          <div class="module-icon">👨‍🏫</div>
+          <div class="module-title">
+            <strong>Teacher Profiles</strong>
+            <span class="bn">শিক্ষক পরিচিতি</span>
+          </div>
+          <span class="module-tag tag-web">WEBSITE</span>
+          <span class="module-toggle">+</span>
+        </div>
+        <div class="module-body">
+          <div class="feat-list">
+            <div class="feat-item"><span class="en">All Teachers' Info</span><span class="bn">সকল শিক্ষকের তথ্য</span></div>
+            <div class="feat-item"><span class="en">Academic Qualifications</span><span class="bn">শিক্ষাগত যোগ্যতা</span></div>
+            <div class="feat-item"><span class="en">Profile Photo</span><span class="bn">ছবি</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Notice Board -->
+      <div class="module" id="m-notice">
+        <div class="module-head" onclick="toggle('m-notice')">
+          <div class="module-icon">📋</div>
+          <div class="module-title">
+            <strong>Notice Board</strong>
+            <span class="bn">নোটিশ বোর্ড</span>
+          </div>
+          <span class="module-tag tag-both">BOTH</span>
+          <span class="module-toggle">+</span>
+        </div>
+        <div class="module-body">
+          <div class="feat-list">
+            <div class="feat-item"><span class="en">General Notices</span><span class="bn">নোটিশ</span></div>
+            <div class="feat-item"><span class="en">Holiday Announcements</span><span class="bn">ছুটির ঘোষণা</span></div>
+            <div class="feat-item"><span class="en">Exam Routine (published here)</span><span class="bn">পরীক্ষার রুটিন</span></div>
+          </div>
+          <div class="module-note">Admin posts notices from the management panel; they appear here automatically.
+            <span class="bn">অ্যাডমিন প্যানেল থেকে নোটিশ দিলে এখানে স্বয়ংক্রিয়ভাবে দেখা যাবে।</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Online Admission -->
+      <div class="module" id="m-admission">
+        <div class="module-head" onclick="toggle('m-admission')">
+          <div class="module-icon">📝</div>
+          <div class="module-title">
+            <strong>Online Admission</strong>
+            <span class="bn">অনলাইন ভর্তি</span>
+          </div>
+          <span class="module-tag tag-both">BOTH</span>
+          <span class="module-toggle">+</span>
+        </div>
+        <div class="module-body">
+          <div class="feat-list">
+            <div class="feat-item"><span class="en">Online Application Form</span><span class="bn">ভর্তি ফর্ম</span></div>
+            <div class="feat-item"><span class="en">Application Status Tracking</span><span class="bn">আবেদন ট্র্যাকিং</span></div>
+          </div>
+          <div class="module-note">Submitted forms feed directly into the Student Management module.
+            <span class="bn">জমাকৃত ফর্ম সরাসরি Student Management-এ যাবে।</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact -->
+      <div class="module" id="m-contact">
+        <div class="module-head" onclick="toggle('m-contact')">
+          <div class="module-icon">📍</div>
+          <div class="module-title">
+            <strong>Contact Page</strong>
+            <span class="bn">যোগাযোগ পেজ</span>
+          </div>
+          <span class="module-tag tag-web">WEBSITE</span>
+          <span class="module-toggle">+</span>
+        </div>
+        <div class="module-body">
+          <div class="feat-list">
+            <div class="feat-item"><span class="en">Embedded Google Map</span><span class="bn">গুগল ম্যাপ</span></div>
+            <div class="feat-item"><span class="en">Phone Number</span><span class="bn">ফোন নম্বর</span></div>
+            <div class="feat-item"><span class="en">Email Address</span><span class="bn">ইমেইল</span></div>
+            <div class="feat-item"><span class="en">WhatsApp Link</span><span class="bn">হোয়াটসঅ্যাপ</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /modules -->
+  </div><!-- /section 1 -->
+
+  <!-- SECTION 2: MANAGEMENT SYSTEM -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">02</div>
+      <div class="section-title">
+        <h2>Management System — Admin &amp; Operations</h2>
+        <span class="bn">ম্যানেজমেন্ট সিস্টেম — অ্যাডমিন ও পরিচালনা</span>
+      </div>
+    </div>
+    <div class="modules">
+
+      <!-- Dashboard -->
+      <div class="module" id="m-dashboard">
+        <div class="module-head" onclick="toggle('m-dashboard')">
+          <div class="module-icon">📊</div>
+          <div class="module-title">
+            <strong>Admin Dashboard</strong>
+            <span class="bn">অ্যাডমিন ড্যাশবোর্ড</span>
+          </div>
+          <span class="module-tag tag-cms">ADMIN</span>
+          <span class="module-toggle">+</span>
+        </div>
+        <div class="module-body">
+          <div class="feat-list">
+            <div class="feat-item"><span class="en">Total Student Count</span><span class="bn">মোট শিক্ষার্থী</span></div>
+            <div class="feat-item"><span class="en">Total Teacher Count</span><span class="bn">মোট শিক্ষক</span></div>
+            <div class="feat-item"><span class="en">Pending/Overdue Fees</span><span class="bn">বকেয়া ফি</span></div>
+            <div class="feat-item"><span class="en">Attendance Overview (Today)</span><span class="bn">উপস্থিতি রিপোর্ট</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Student Management -->
+      <div class="module" id="m-students">
+        <div class="module-head" onclick="toggle('m-students')">
+          <div class="module-icon">🎓</div>
+          <div class="module-title">
+            <strong>Student Management</strong>
+            <span class="bn">শিক্ষার্থী ব্যবস্থাপনা</span>
+          </div>
+          <span class="module-tag tag-cms">ADMIN</span>
+          <span class="module-toggle">+</span>
+        </div>
+        <div class="module-body">
+          <p style="font-size:13px;color:var(--muted);margin-bottom:12px;">Each student record includes: / প্রত্যেক শিক্ষার্থীর রেকর্ডে থাকবে:</p>
+          <div class="feat-list">
+            <div class="feat-item"><span class="en">Unique Student ID</span><span class="bn">Student ID</span></div>
+            <div class="feat-item"><span class="en">Profile Photo</span><span class="bn">ছবি</span></div>
+            <div class="feat-item"><span class="en">Birth Registration Number</span><span class="bn">জন্ম নিবন্ধন</span></div>
+            <div class="feat-item"><span class="en">Guardian Information</span><span class="bn">অভিভাবকের তথ্য</span></div>
+            <div class="feat-item"><span class="en">Home Address</span><span class="bn">ঠিকানা</span></div>
+            <div class="feat-item"><span class="en">Assigned Class &amp; Roll</span><span class="bn">ক্লাস ও রোল</span></div>
+            <div class="feat-item"><span class="en">Concessions / Benefits</span><span class="bn">সুবিধা / ছাড়</span></div>
+          </div>
+          <p style="font-size:13px;color:var(--muted);margin-top:16px;margin-bottom:8px;">Actions / কার্যক্রম:</p>
+          <div class="feat-list">
+            <div class="feat-item"><span class="en">New Student Admission</span><span class="bn">ছাত্র ভর্তি</span></div>
+            <div class="feat-item"><span class="en">Issue Transfer Certificate (TC)</span><span class="bn">TC প্রদান</span></div>
+            <div class="feat-item"><span class="en">Change Class / Promote</span><span class="bn">ক্লাস পরিবর্তন</span></div>
+            <div class="feat-item"><span class="en">Search Student Records</span><span class="bn">শিক্ষার্থী অনুসন্ধান</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Attendance -->
+      <div class="module" id="m-attendance">
+        <div class="module-head" onclick="toggle('m-attendance')">
+          <div class="module-icon">✅</div>
+          <div class="module-title">
+            <strong>Attendance Management</strong>
+            <span class="bn">উপস্থিতি ব্যবস্থাপনা</span>
+          </div>
+          <span class="module-tag tag-cms">ADMIN</span>
+          <span class="module-toggle">+</span>
+        </div>
+        <div class="module-body">
+          <p style="font-size:13px;color:var(--muted);margin-bottom:8px;">For Teachers / শিক্ষকদের জন্য:</p>
+          <div class="feat-list">
+            <div class="feat-item"><span class="en">Daily Attendance</span><span class="bn">Daily Attendance</span></div>
+            <div class="feat-item"><span class="en">Late Entry Logging</span><span class="bn">Late Entry</span></div>
+            <div class="feat-item"><span class="en">Leave Management</span><span class="bn">Leave Management</span></div>
+          </div>
+          <p style="font-size:13px;color:var(--muted);margin-top:14px;margin-bottom:8px;">For Students / শিক্ষার্থীদের জন্য:</p>
+          <div class="feat-list">
+            <div class="feat-item"><span class="en">Daily Attendance</span><span class="bn">Daily Attendance</span></div>
+            <div class="feat-item"><span class="en">Monthly Attendance Report</span><span class="bn">মাসিক রিপোর্ট</span></div>
+            <div class="feat-item"><span class="en">Auto SMS to Parent on Absence</span><span class="bn">SMS Notification</span></div>
+          </div>
+          <div class="module-note">
+            <strong>SMS Example:</strong> "আজ আপনার সন্তান উপস্থিত নেই।" — sent automatically to guardian's phone when a student is marked absent.
+            <span class="bn">শিক্ষার্থী অনুপস্থিত হলে অভিভাবকের মোবাইলে স্বয়ংক্রিয় SMS যাবে।</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fees -->
+      <div class="module" id="m-fees">
+        <div class="module-head" onclick="toggle('m-fees')">
+          <div class="module-icon">💰</div>
+          <div class="module-title">
+            <strong>Fees Management</strong>
+            <span class="bn">ফি ব্যবস্থাপনা</span>
+          </div>
+          <span class="module-tag tag-cms">ADMIN</span>
+          <span class="module-toggle">+</span>
+        </div>
+        <div class="module-body">
+          <p style="font-size:13px;color:var(--muted);margin-bottom:8px;">Fee Types / ফির ধরন:</p>
+          <div class="feat-list">
+            <div class="feat-item"><span class="en">Monthly Tuition</span><span class="bn">মাসিক বেতন</span></div>
+            <div class="feat-item"><span class="en">Admission Fee</span><span class="bn">ভর্তি ফি</span></div>
+            <div class="feat-item"><span class="en">Exam Fee</span><span class="bn">পরীক্ষা ফি</span></div>
+            <div class="feat-item"><span class="en">Development Fee</span><span class="bn">উন্নয়ন ফি</span></div>
+          </div>
+          <p style="font-size:13px;color:var(--muted);margin-top:14px;margin-bottom:8px;">Features / সুবিধা:</p>
+          <div class="feat-list">
+            <div class="feat-item"><span class="en">Auto-generated Receipt</span><span class="bn">স্বয়ংক্রিয় রশিদ</span></div>
+            <div class="feat-item"><span class="en">PDF Receipt Download</span><span class="bn">PDF Receipt</span></div>
+            <div class="feat-item"><span class="en">Overdue / Arrears List</span><span class="bn">বকেয়া তালিকা</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Examination -->
+      <div class="module" id="m-exam">
+        <div class="module-head" onclick="toggle('m-exam')">
+          <div class="module-icon">📄</div>
+          <div class="module-title">
+            <strong>Examination System</strong>
+            <span class="bn">পরীক্ষা ব্যবস্থাপনা</span>
+          </div>
+          <span class="module-tag tag-cms">ADMIN</span>
+          <span class="module-toggle">+</span>
+        </div>
+        <div class="module-body">
+          <div class="feat-list">
+            <div class="feat-item"><span class="en">Question Paper Storage</span><span class="bn">প্রশ্নপত্র সংরক্ষণ</span></div>
+            <div class="feat-item"><span class="en">Marks Entry per Subject</span><span class="bn">মার্কস এন্ট্রি</span></div>
+            <div class="feat-item"><span class="en">Result Publication</span><span class="bn">ফলাফল প্রকাশ</span></div>
+            <div class="feat-item"><span class="en">PDF Report Card Generation</span><span class="bn">PDF Result / Report Card</span></div>
+            <div class="feat-item"><span class="en">GPA Calculation</span><span class="bn">GPA</span></div>
+            <div class="feat-item"><span class="en">Class Merit List</span><span class="bn">Merit List</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Accounts -->
+      <div class="module" id="m-accounts">
+        <div class="module-head" onclick="toggle('m-accounts')">
+          <div class="module-icon">🧾</div>
+          <div class="module-title">
+            <strong>Accounts Module</strong>
+            <span class="bn">হিসাব বিভাগ</span>
+          </div>
+          <span class="module-tag tag-cms">ADMIN</span>
+          <span class="module-toggle">+</span>
+        </div>
+        <div class="module-body">
+          <p style="font-size:13px;color:var(--muted);margin-bottom:8px;">Income / আয়:</p>
+          <div class="feat-list">
+            <div class="feat-item"><span class="en">Student Tuition Fees</span><span class="bn">ছাত্র বেতন</span></div>
+            <div class="feat-item"><span class="en">Donations</span><span class="bn">দান</span></div>
+            <div class="feat-item"><span class="en">Grants</span><span class="bn">অনুদান</span></div>
+          </div>
+          <p style="font-size:13px;color:var(--muted);margin-top:14px;margin-bottom:8px;">Expenditure / ব্যয়:</p>
+          <div class="feat-list">
+            <div class="feat-item"><span class="en">Teacher Salaries</span><span class="bn">শিক্ষক বেতন</span></div>
+            <div class="feat-item"><span class="en">Electricity Bill</span><span class="bn">বিদ্যুৎ বিল</span></div>
+            <div class="feat-item"><span class="en">Internet Bill</span><span class="bn">ইন্টারনেট</span></div>
+            <div class="feat-item"><span class="en">Office Expenses</span><span class="bn">অফিস খরচ</span></div>
+          </div>
+          <p style="font-size:13px;color:var(--muted);margin-top:14px;margin-bottom:8px;">Reports / রিপোর্ট:</p>
+          <div class="feat-list">
+            <div class="feat-item"><span class="en">Cash Book</span><span class="bn">Cash Book</span></div>
+            <div class="feat-item"><span class="en">Income Statement</span><span class="bn">Income Statement</span></div>
+            <div class="feat-item"><span class="en">Monthly Report</span><span class="bn">Monthly Report</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Payroll -->
+      <div class="module" id="m-payroll">
+        <div class="module-head" onclick="toggle('m-payroll')">
+          <div class="module-icon">💳</div>
+          <div class="module-title">
+            <strong>Payroll System</strong>
+            <span class="bn">বেতন ব্যবস্থাপনা (শিক্ষক)</span>
+          </div>
+          <span class="module-tag tag-cms">ADMIN</span>
+          <span class="module-toggle">+</span>
+        </div>
+        <div class="module-body">
+          <div class="feat-list">
+            <div class="feat-item"><span class="en">Salary Configuration per Teacher</span><span class="bn">বেতন নির্ধারণ</span></div>
+            <div class="feat-item"><span class="en">Attendance-based Deduction</span><span class="bn">উপস্থিতি অনুযায়ী হিসাব</span></div>
+            <div class="feat-item"><span class="en">Payslip Generation</span><span class="bn">Payslip</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Assignment Dashboard -->
+      <div class="module" id="m-assignments">
+        <div class="module-head" onclick="toggle('m-assignments')">
+          <div class="module-icon">📌</div>
+          <div class="module-title">
+            <strong>Assignment Dashboard</strong>
+            <span class="bn">অ্যাসাইনমেন্ট ড্যাশবোর্ড</span>
+          </div>
+          <span class="module-tag tag-both">BOTH</span>
+          <span class="module-toggle">+</span>
+        </div>
+        <div class="module-body">
+          <p style="font-size:13px;color:var(--muted);margin-bottom:8px;">Who can create / কে তৈরি করতে পারবে:</p>
+          <div class="feat-list">
+            <div class="feat-item"><span class="en">Admin — post assignments for any class</span><span class="bn">অ্যাডমিন — যেকোনো ক্লাসের জন্য</span></div>
+            <div class="feat-item"><span class="en">Teacher — post for their own class only</span><span class="bn">শিক্ষক — নিজের ক্লাসের জন্য</span></div>
+          </div>
+          <p style="font-size:13px;color:var(--muted);margin-top:14px;margin-bottom:8px;">Assignment details per entry / প্রতিটি অ্যাসাইনমেন্টে থাকবে:</p>
+          <div class="feat-list">
+            <div class="feat-item"><span class="en">Title &amp; Description</span><span class="bn">শিরোনাম ও বিবরণ</span></div>
+            <div class="feat-item"><span class="en">Subject</span><span class="bn">বিষয়</span></div>
+            <div class="feat-item"><span class="en">Assigned Class</span><span class="bn">নির্দিষ্ট ক্লাস</span></div>
+            <div class="feat-item"><span class="en">Due Date</span><span class="bn">জমার তারিখ</span></div>
+            <div class="feat-item"><span class="en">Posted By (Teacher/Admin)</span><span class="bn">প্রদানকারীর নাম</span></div>
+          </div>
+          <p style="font-size:13px;color:var(--muted);margin-top:14px;margin-bottom:8px;">Who can view / কে দেখতে পারবে:</p>
+          <div class="feat-list">
+            <div class="feat-item"><span class="en">Students — their class only</span><span class="bn">শিক্ষার্থী — নিজের ক্লাসের</span></div>
+            <div class="feat-item"><span class="en">Parents — their child's class only</span><span class="bn">অভিভাবক — সন্তানের ক্লাসের</span></div>
+            <div class="feat-item"><span class="en">Teachers — classes they teach</span><span class="bn">শিক্ষক — নিজের ক্লাসের</span></div>
+            <div class="feat-item"><span class="en">Admin — all classes</span><span class="bn">অ্যাডমিন — সব ক্লাস</span></div>
+          </div>
+          <div class="module-note">View only — students cannot submit assignments through the portal.
+            <span class="bn">শুধু দেখার সুবিধা — শিক্ষার্থীরা পোর্টালে জমা দিতে পারবে না।</span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /modules -->
+  </div><!-- /section 2 -->
+
+  <!-- SECTION 3: PORTALS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">03</div>
+      <div class="section-title">
+        <h2>User Portals &amp; Communication</h2>
+        <span class="bn">ব্যবহারকারী পোর্টাল ও যোগাযোগ</span>
+      </div>
+    </div>
+    <div class="modules">
+
+      <!-- SMS Gateway -->
+      <div class="module" id="m-sms">
+        <div class="module-head" onclick="toggle('m-sms')">
+          <div class="module-icon">📱</div>
+          <div class="module-title">
+            <strong>SMS Gateway</strong>
+            <span class="bn">SMS গেটওয়ে</span>
+          </div>
+          <span class="module-tag tag-cms">ADMIN</span>
+          <span class="module-toggle">+</span>
+        </div>
+        <div class="module-body">
+          <p style="font-size:13px;color:var(--muted);margin-bottom:8px;">Automated SMS triggers / স্বয়ংক্রিয় SMS কখন যাবে:</p>
+          <div class="feat-list">
+            <div class="feat-item"><span class="en">Student Absence</span><span class="bn">উপস্থিতি</span></div>
+            <div class="feat-item"><span class="en">Exam Result Published</span><span class="bn">পরীক্ষার ফলাফল</span></div>
+            <div class="feat-item"><span class="en">Fee Overdue Reminder</span><span class="bn">ফি বকেয়া</span></div>
+            <div class="feat-item"><span class="en">Holiday / Closure Notice</span><span class="bn">ছুটির নোটিশ</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Parent App -->
+      <div class="module" id="m-parent">
+        <div class="module-head" onclick="toggle('m-parent')">
+          <div class="module-icon">👨‍👩‍👦</div>
+          <div class="module-title">
+            <strong>Parent Portal / App</strong>
+            <span class="bn">অভিভাবক পোর্টাল</span>
+          </div>
+          <span class="module-tag tag-both">BOTH</span>
+          <span class="module-toggle">+</span>
+        </div>
+        <div class="module-body">
+          <p style="font-size:13px;color:var(--muted);margin-bottom:8px;">Parents can log in and view / অভিভাবক লগইন করে দেখতে পারবেন:</p>
+          <div class="feat-list">
+            <div class="feat-item"><span class="en">Child's Attendance</span><span class="bn">উপস্থিতি</span></div>
+            <div class="feat-item"><span class="en">Exam Results</span><span class="bn">ফলাফল</span></div>
+            <div class="feat-item"><span class="en">Fee Status &amp; Dues</span><span class="bn">ফি</span></div>
+            <div class="feat-item"><span class="en">School Notices</span><span class="bn">নোটিশ</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Teacher Portal -->
+      <div class="module" id="m-teacherp">
+        <div class="module-head" onclick="toggle('m-teacherp')">
+          <div class="module-icon">🧑‍💻</div>
+          <div class="module-title">
+            <strong>Teacher Portal</strong>
+            <span class="bn">শিক্ষক পোর্টাল</span>
+          </div>
+          <span class="module-tag tag-both">BOTH</span>
+          <span class="module-toggle">+</span>
+        </div>
+        <div class="module-body">
+          <p style="font-size:13px;color:var(--muted);margin-bottom:8px;">Teachers can access / শিক্ষক দেখতে পারবেন:</p>
+          <div class="feat-list">
+            <div class="feat-item"><span class="en">Class Timetable / Routine</span><span class="bn">ক্লাস রুটিন</span></div>
+            <div class="feat-item"><span class="en">Own Attendance Record</span><span class="bn">উপস্থিতি</span></div>
+            <div class="feat-item"><span class="en">Enter Student Results</span><span class="bn">ফলাফল এন্ট্রি</span></div>
+            <div class="feat-item"><span class="en">View Student Information</span><span class="bn">শিক্ষার্থীর তথ্য</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 4: ROLES -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">04</div>
+      <div class="section-title">
+        <h2>User Roles Summary</h2>
+        <span class="bn">ব্যবহারকারীর ভূমিকা</span>
+      </div>
+    </div>
+    <div class="roles">
+      <div class="role-card" style="border-color: var(--accent); background: var(--accent-light);">
+        <div class="role-title" style="color: var(--accent);">👤 Super Admin — Ismail</div>
+        <ul>
+          <li>Full system access</li>
+          <li>Manage all modules</li>
+          <li>Financial reports</li>
+          <li>User management</li>
+        </ul>
+        <p style="font-size:11px;color:var(--accent);margin-top:10px;font-family:'IBM Plex Mono',monospace;">Designated system owner</p>
+      </div>
+      <div class="role-card">
+        <div class="role-title">👨‍🏫 Teacher</div>
+        <ul>
+          <li>View class routine</li>
+          <li>Mark student attendance</li>
+          <li>Enter exam marks</li>
+          <li>View student profiles</li>
+          <li>Post assignments</li>
+        </ul>
+      </div>
+      <div class="role-card">
+        <div class="role-title">👨‍👩‍👦 Parent</div>
+        <ul>
+          <li>View child's attendance</li>
+          <li>View results</li>
+          <li>Check fee dues</li>
+          <li>Read notices</li>
+          <li>View child's assignments</li>
+        </ul>
+      </div>
+      <div class="role-card">
+        <div class="role-title">🌐 Public Visitor</div>
+        <ul>
+          <li>Browse website</li>
+          <li>Read notices</li>
+          <li>Apply for admission</li>
+          <li>Contact the college</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: SERVICE TERMS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">05</div>
+      <div class="section-title">
+        <h2>Service &amp; Support Terms</h2>
+        <span class="bn">সেবা ও সহায়তার শর্তাবলি</span>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:14px;">
+
+      <div style="border:1px solid var(--rule);background:#fff;padding:22px 24px;display:flex;gap:18px;align-items:flex-start;">
+        <div style="font-size:24px;flex-shrink:0;">🛠️</div>
+        <div>
+          <strong style="font-size:15px;display:block;margin-bottom:4px;">Post-Delivery Support — 180 Days</strong>
+          <span style="font-family:'Noto Serif Bengali',serif;font-size:12px;color:var(--muted);display:block;margin-bottom:8px;">ডেলিভারির পরে ১৮০ দিনের সহায়তা</span>
+          <p style="font-size:13px;color:var(--muted);line-height:1.6;">After project delivery, we provide <strong>180 days of post-delivery support</strong> — covering bug fixes, minor adjustments, and technical queries at no additional cost.</p>
+        </div>
+      </div>
+
+      <div style="border:1px solid var(--rule);background:#fff;padding:22px 24px;display:flex;gap:18px;align-items:flex-start;">
+        <div style="font-size:24px;flex-shrink:0;">🌐</div>
+        <div>
+          <strong style="font-size:15px;display:block;margin-bottom:4px;">Hosting &amp; Domain — 1 Year Included</strong>
+          <span style="font-family:'Noto Serif Bengali',serif;font-size:12px;color:var(--muted);display:block;margin-bottom:8px;">১ বছরের হোস্টিং ও ডোমেইন অন্তর্ভুক্ত</span>
+          <p style="font-size:13px;color:var(--muted);line-height:1.6;"><strong>1 year of hosting and domain</strong> is included in the project cost. No additional charges for the first year.</p>
+        </div>
+      </div>
+
+      <div style="border:1px solid var(--rule);background:#fff;padding:22px 24px;display:flex;gap:18px;align-items:flex-start;">
+        <div style="font-size:24px;flex-shrink:0;">🔄</div>
+        <div>
+          <strong style="font-size:15px;display:block;margin-bottom:4px;">Annual Maintenance — ৳30,000 / Year (after Year 1)</strong>
+          <span style="font-family:'Noto Serif Bengali',serif;font-size:12px;color:var(--muted);display:block;margin-bottom:8px;">১ বছর পরে বার্ষিক রক্ষণাবেক্ষণ — ৩০,০০০ টাকা</span>
+          <p style="font-size:13px;color:var(--muted);line-height:1.6;">From Year 2 onwards, a <strong>yearly maintenance fee of ৳30,000 BDT</strong> applies — covering hosting renewal, domain renewal, security updates, and ongoing technical support.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 6: PRICING -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">06</div>
+      <div class="section-title">
+        <h2>Project Pricing</h2>
+        <span class="bn">প্রকল্পের মূল্য</span>
+      </div>
+    </div>
+
+    <div style="border:1px solid var(--rule);background:#fff;overflow:hidden;">
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));border-bottom:1px solid var(--rule);">
+
+        <div style="padding:24px 28px;border-right:1px solid var(--rule);">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px;">Total Cost</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:600;color:var(--ink);">৳2,00,000</div>
+          <div style="font-family:'Noto Serif Bengali',serif;font-size:12px;color:var(--muted);margin-top:4px;">মোট খরচ</div>
+        </div>
+
+        <div style="padding:24px 28px;border-right:1px solid var(--rule);background:var(--accent-light);">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--accent);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px;">Discount</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:600;color:var(--accent);">− ৳50,000</div>
+          <div style="font-family:'Noto Serif Bengali',serif;font-size:12px;color:var(--accent);margin-top:4px;">ছাড়</div>
+        </div>
+
+        <div style="padding:24px 28px;background:var(--ink);">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px;">Net Payable</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:600;color:#fff;">৳1,50,000</div>
+          <div style="font-family:'Noto Serif Bengali',serif;font-size:12px;color:rgba(255,255,255,.5);margin-top:4px;">প্রদেয় মোট</div>
+        </div>
+
+      </div>
+
+      <div style="padding:20px 28px;display:flex;gap:32px;flex-wrap:wrap;align-items:center;">
+        <div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;">Payment Terms / পরিশোধের শর্ত</div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <div style="border:1px solid var(--accent);padding:8px 16px;font-size:13px;">
+              <strong>50%</strong> — ৳75,000 on project start
+              <div style="font-family:'Noto Serif Bengali',serif;font-size:11px;color:var(--muted);">প্রকল্প শুরুতে অগ্রিম</div>
+            </div>
+            <div style="border:1px solid var(--rule);padding:8px 16px;font-size:13px;">
+              <strong>50%</strong> — ৳75,000 on delivery
+              <div style="font-family:'Noto Serif Bengali',serif;font-size:11px;color:var(--muted);">ডেলিভারিতে বাকি অর্থ</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 7: TIMELINE -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">07</div>
+      <div class="section-title">
+        <h2>Project Timeline — 12 Weeks</h2>
+        <span class="bn">প্রকল্পের সময়সূচি — ১২ সপ্তাহ</span>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:0;">
+
+      <div style="display:grid;grid-template-columns:80px 1fr;gap:0;">
+
+        <!-- Week 1-2 -->
+        <div style="display:flex;flex-direction:column;align-items:center;padding-top:4px;">
+          <div style="width:12px;height:12px;border-radius:50%;background:var(--accent);flex-shrink:0;"></div>
+          <div style="width:2px;background:var(--rule);flex:1;margin:4px 0;"></div>
+        </div>
+        <div style="padding:4px 0 24px 16px;">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted);margin-bottom:4px;">WEEK 1–2</div>
+          <strong style="font-size:14px;">Research &amp; Planning</strong>
+          <p style="font-size:13px;color:var(--muted);margin-top:4px;">Requirement finalisation, system architecture, database schema, UI wireframes.</p>
+        </div>
+
+        <!-- Week 3-6 -->
+        <div style="display:flex;flex-direction:column;align-items:center;padding-top:4px;">
+          <div style="width:12px;height:12px;border-radius:50%;background:var(--accent);flex-shrink:0;"></div>
+          <div style="width:2px;background:var(--rule);flex:1;margin:4px 0;"></div>
+        </div>
+        <div style="padding:4px 0 24px 16px;">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted);margin-bottom:4px;">WEEK 3–8</div>
+          <strong style="font-size:14px;">Development</strong>
+          <p style="font-size:13px;color:var(--muted);margin-top:4px;">Building the public website and all management system modules — student, attendance, fees, exams, accounts, payroll, SMS gateway, and user portals.</p>
+        </div>
+
+        <!-- Week 9-10 -->
+        <div style="display:flex;flex-direction:column;align-items:center;padding-top:4px;">
+          <div style="width:12px;height:12px;border-radius:50%;background:var(--accent);flex-shrink:0;"></div>
+          <div style="width:2px;background:var(--rule);flex:1;margin:4px 0;"></div>
+        </div>
+        <div style="padding:4px 0 24px 16px;">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted);margin-bottom:4px;">WEEK 9–10</div>
+          <strong style="font-size:14px;">Testing &amp; Debugging</strong>
+          <p style="font-size:13px;color:var(--muted);margin-top:4px;">End-to-end testing across all modules, bug fixes, performance checks, and client review round.</p>
+        </div>
+
+        <!-- Week 11-12 -->
+        <div style="display:flex;flex-direction:column;align-items:center;padding-top:4px;">
+          <div style="width:12px;height:12px;border-radius:50%;background:var(--accent);flex-shrink:0;"></div>
+          <div style="width:2px;background:var(--rule);flex:1;margin:4px 0;"></div>
+        </div>
+        <div style="padding:4px 0 24px 16px;">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted);margin-bottom:4px;">WEEK 11–12</div>
+          <strong style="font-size:14px;">Deployment &amp; Handover</strong>
+          <p style="font-size:13px;color:var(--muted);margin-top:4px;">Server setup, domain &amp; hosting configuration, live deployment, staff training, and project handover to Ismail (Super Admin).</p>
+        </div>
+
+        <!-- End -->
+        <div style="display:flex;flex-direction:column;align-items:center;padding-top:4px;">
+          <div style="width:14px;height:14px;border-radius:50%;background:var(--ink);flex-shrink:0;border:3px solid var(--accent);"></div>
+        </div>
+        <div style="padding:4px 0 8px 16px;">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink);font-weight:600;">PROJECT DELIVERED — 180-DAY SUPPORT BEGINS</div>
+          <div style="font-family:'Noto Serif Bengali',serif;font-size:12px;color:var(--muted);margin-top:3px;">প্রকল্প সম্পন্ন — ১৮০ দিনের সহায়তা শুরু</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div><!-- /body-wrap -->
+
+<footer>
+  <span>Galachipa Mohila College — Project Requirements v1.0</span>
+  <span>Confidential — Internal Use Only</span>
+</footer>
+
+<script>
+  function toggle(id) {
+    const el = document.getElementById(id);
+    el.classList.toggle('open');
+  }
+  // Open first module in each section by default
+  ['m-home','m-dashboard','m-sms'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.classList.add('open');
+  });
+</script>
+</body>
+</html>
