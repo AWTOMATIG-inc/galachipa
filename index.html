@@ -316,6 +316,21 @@
     font-family: 'IBM Plex Mono', monospace;
   }
 
+  /* ── BRAND ── */
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+  }
+  .brand img { width: 24px; height: 24px; border-radius: 50%; display: block; }
+  .topbar .brand { color: #f7f4ef; margin-right: 6px; }
+  footer .brand { color: var(--ink); }
+
   /* ── FOOTER ── */
   footer {
     border-top: 2px solid var(--ink);
@@ -362,6 +377,7 @@
 
 <div class="topbar">
   <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+    <span class="brand"><img src="awtomatig-logo.png" alt="AWTOMATIG logo">AWTOMATIG</span>
     <span class="badge">PRD</span>
     <span style="opacity:.5">Galachipa Mohila College</span>
   </div>
@@ -1102,6 +1118,7 @@
 </div><!-- /body-wrap -->
 
 <footer>
+  <span class="brand"><img src="awtomatig-logo.png" alt="AWTOMATIG logo">Built by AWTOMATIG</span>
   <span>Galachipa Mohila College — Project Requirements v1.0</span>
   <span>Confidential — Internal Use Only</span>
 </footer>
