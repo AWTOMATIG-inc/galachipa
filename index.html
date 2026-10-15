@@ -414,7 +414,7 @@
 
   <!-- SUMMARY -->
   <div class="summary">
-    <strong>Project Summary:</strong> This is a single unified project consisting of two layers — a <strong>public-facing website</strong> for institutional presence, and a <strong>backend management system (EMS)</strong> for day-to-day administration. The goal is to reduce manual paperwork, enable parent communication via SMS, and centralize all institutional data.
+    <strong>Project Summary:</strong> This is a single unified project consisting of two layers — a <strong>public-facing website</strong> for institutional presence, and a <strong>backend management system (EMS)</strong> for day-to-day administration. The goal is to reduce manual paperwork, enable parent communication through the parent portal, and centralize all institutional data.
     <span class="bn">এটি একটি সমন্বিত প্রকল্প। প্রতিষ্ঠানের পরিচিতির জন্য পাবলিক ওয়েবসাইট এবং দৈনন্দিন প্রশাসনিক কার্যক্রমের জন্য একটি ব্যাকএন্ড ম্যানেজমেন্ট সিস্টেম — দুটি একসাথে।</span>
   </div>
 
@@ -675,11 +675,6 @@
           <div class="feat-list">
             <div class="feat-item"><span class="en">Daily Attendance</span><span class="bn">Daily Attendance</span></div>
             <div class="feat-item"><span class="en">Monthly Attendance Report</span><span class="bn">মাসিক রিপোর্ট</span></div>
-            <div class="feat-item"><span class="en">Auto SMS to Parent on Absence</span><span class="bn">SMS Notification</span></div>
-          </div>
-          <div class="module-note">
-            <strong>SMS Example:</strong> "আজ আপনার সন্তান উপস্থিত নেই।" — sent automatically to guardian's phone when a student is marked absent.
-            <span class="bn">শিক্ষার্থী অনুপস্থিত হলে অভিভাবকের মোবাইলে স্বয়ংক্রিয় SMS যাবে।</span>
           </div>
         </div>
       </div>
@@ -841,34 +836,12 @@
     </div>
     <div class="modules">
 
-      <!-- SMS Gateway -->
-      <div class="module" id="m-sms">
-        <div class="module-head" onclick="toggle('m-sms')">
-          <div class="module-icon">📱</div>
-          <div class="module-title">
-            <strong>SMS Gateway</strong>
-            <span class="bn">SMS গেটওয়ে</span>
-          </div>
-          <span class="module-tag tag-cms">ADMIN</span>
-          <span class="module-toggle">+</span>
-        </div>
-        <div class="module-body">
-          <p style="font-size: 15px;color:var(--muted);margin-bottom:8px;">Automated SMS triggers / স্বয়ংক্রিয় SMS কখন যাবে:</p>
-          <div class="feat-list">
-            <div class="feat-item"><span class="en">Student Absence</span><span class="bn">উপস্থিতি</span></div>
-            <div class="feat-item"><span class="en">Exam Result Published</span><span class="bn">পরীক্ষার ফলাফল</span></div>
-            <div class="feat-item"><span class="en">Fee Overdue Reminder</span><span class="bn">ফি বকেয়া</span></div>
-            <div class="feat-item"><span class="en">Holiday / Closure Notice</span><span class="bn">ছুটির নোটিশ</span></div>
-          </div>
-        </div>
-      </div>
-
       <!-- Parent App -->
       <div class="module" id="m-parent">
         <div class="module-head" onclick="toggle('m-parent')">
           <div class="module-icon">👨‍👩‍👦</div>
           <div class="module-title">
-            <strong>Parent Portal / App</strong>
+            <strong>Parent Portal</strong>
             <span class="bn">অভিভাবক পোর্টাল</span>
           </div>
           <span class="module-tag tag-both">BOTH</span>
@@ -1088,7 +1061,7 @@
         <div style="padding:4px 0 24px 16px;">
           <div style="font-family:'IBM Plex Mono',monospace;font-size: 13px;color:var(--muted);margin-bottom:4px;">WEEK 3–8</div>
           <strong style="font-size: 16px;">Development</strong>
-          <p style="font-size: 15px;color:var(--muted);margin-top:4px;">Building the public website and all management system modules — student, attendance, fees, exams, accounts, payroll, SMS gateway, and user portals.</p>
+          <p style="font-size: 15px;color:var(--muted);margin-top:4px;">Building the public website and all management system modules — student, attendance, fees, exams, accounts, payroll, and user portals.</p>
         </div>
 
         <!-- Week 9-10 -->
@@ -1139,7 +1112,7 @@
     el.classList.toggle('open');
   }
   // Open first module in each section by default
-  ['m-home','m-dashboard','m-sms'].forEach(id => {
+  ['m-home','m-dashboard','m-parent'].forEach(id => {
     const el = document.getElementById(id);
     if (el) el.classList.add('open');
   });
